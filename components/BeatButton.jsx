@@ -1,5 +1,6 @@
 import { useState } from "react";
 import useSound from 'use-sound';
+import classNames from "classnames";
 
 
 export const BeatButton = (props) => {
@@ -9,12 +10,18 @@ export const BeatButton = (props) => {
   
   const [play, exposedData] = useSound(sound, {loop: true});
   const [playing, setPlaying] = useState(false)
+
+  const buttonClass = classNames({
+    'bg-slate-400 text-white p-2 m-2 w-40 h-40': true,
+    'bg-pink-500' : playing
+
+})
   
 
   return (
-  <div className="border-8">
-
     <button
+        className={buttonClass}
+
       onClick={()=>{
         if(!playing){
           setPlaying(true)
@@ -26,9 +33,8 @@ export const BeatButton = (props) => {
         }
       }}
     >
-      {/* <img src={icon} alt="Beat 1" /> */}
-    <h1>{label}</h1>
+    {/* <h1>{label}</h1> */}
     </button>
-  </div>
+
   );
 };
