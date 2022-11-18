@@ -1,0 +1,23 @@
+
+export const sounds = [
+  '/sounds/1_kick_a.ogg',
+  '/sounds/2_snare_a.ogg',
+  '/sounds/3_kanye_a.ogg',
+  '/sounds/4_tuctuc_a.ogg',
+  '/sounds/5_break_a.ogg',
+  '/sounds/6_cribasse_a.ogg',
+  '/sounds/7_distotut_a.ogg',
+  '/sounds/8_screw_a.ogg',
+  '/sounds/9_shaolin_a.ogg',
+  '/sounds/10_shower_a.ogg',
+  '/sounds/11_basse_a.ogg',
+  '/sounds/12_hou_a.ogg',
+  '/sounds/13_clav_a.ogg',
+  '/sounds/14_synth_a.ogg',
+  '/sounds/15_yah_a.ogg',
+  '/sounds/16_hurry_a.ogg',
+  '/sounds/17_good_a.ogg',
+  '/sounds/18_mind_a.ogg',
+  '/sounds/19_haha_a.ogg',
+  '/sounds/20_wow_a.ogg',
+];

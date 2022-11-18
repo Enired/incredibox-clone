@@ -26,9 +26,9 @@ export const BeatButton = (props) => {
         }
       }}
     >
-      <img src={icon} alt="Beat 1" />
-    </button>
+      {/* <img src={icon} alt="Beat 1" /> */}
     <h1>{label}</h1>
+    </button>
   </div>
   );
 };
