@@ -3,14 +3,17 @@ import useSound from 'use-sound';
 
 
 export const BeatButton = (props) => {
-  const sound = '/sounds/19_haha_a.ogg' //change to props.sound
+  const sound = props.sound //change to props.sound
   const icon = '/images/test.gif' // change to props.icon
+  const label = props.label
   
   const [play, exposedData] = useSound(sound, {loop: true});
   const [playing, setPlaying] = useState(false)
   
 
   return (
+  <div className="border-8">
+
     <button
       onClick={()=>{
         if(!playing){
@@ -25,5 +28,7 @@ export const BeatButton = (props) => {
     >
       <img src={icon} alt="Beat 1" />
     </button>
+    <h1>{label}</h1>
+  </div>
   );
 };
