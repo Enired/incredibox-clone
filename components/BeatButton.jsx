@@ -14,9 +14,9 @@ export const BeatButton = (props) => {
   const [playing, setPlaying] = useState(false);
 
   const buttonClass = classNames({
-    'bg-slate-400 hover:bg-slate-600 text-white p-2 m-2 w-40 h-40': true,
-    'bg-pink-500': playing,
-    'disabled bg-slate-100' : activeCountState.count >= 8 && !playing,
+    'bg-teal-800 hover:bg-teal-600 text-white p-2 m-2 w-20 h-20': true,
+    'bg-pink-600': playing,
+    'disabled bg-teal-200' : activeCountState.count >= 8 && !playing,
 
   });
 
