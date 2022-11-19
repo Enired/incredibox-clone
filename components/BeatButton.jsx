@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSound from 'use-sound';
 import classNames from "classnames";
 
@@ -8,6 +8,7 @@ export const BeatButton = (props) => {
   const icon = '/images/test.gif'; // change to props.icon
   const label = props.label;
   const activeState = props.activeCountState;
+  const allStop = props.allStop
   // const setActiveCount = props.setActiveCount;
 
   const [play, exposedData] = useSound(sound, { loop: true });
@@ -19,6 +20,16 @@ export const BeatButton = (props) => {
     'disabled bg-teal-200' : activeState.count >= 8 && !playing,
 
   });
+
+  const reset = () => {
+    exposedData.stop()
+    setPlaying(false)
+    activeState.setCount(0)
+
+  }
+  useEffect(()=>{
+    reset()
+  },[allStop])
 
 
   return (

@@ -1,7 +1,10 @@
 export const ControlButton = (props) => {
-  label = props.label
+  const label = props.label
+  const onClick = props.onClick
   return (
-    <button>
+    <button
+    onClick={()=>{onClick()}}
+    >
       {label}
     </button>
   )

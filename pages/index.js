@@ -6,10 +6,16 @@ import { useEffect, useState } from 'react';
 
 //All sounds from sounds public folder
 import {sounds} from '../public/sounds/index'
+import { ControlButton } from '../components/ControlButton';
 
 
 export default function Home() {
   const [activeCount, setActiveCount] = useState(0)
+  const [allStop, setAllStop] = useState(0)
+
+  const allStopFn = () => {
+    setAllStop(allStop+1)
+  }
   return (
   
     <div className='flex flex-wrap w-1/4 max-h-60 content-center justify-center'>
@@ -19,9 +25,15 @@ export default function Home() {
             sound={sound}
             label={`Button ${index}`}
             activeCountState={{count:activeCount, setCount:setActiveCount}}
+            allStop={allStop}
           />
         )
       })}
+
+      <ControlButton 
+      label={'STOP'}
+      onClick={allStopFn}
+      />
     </div>
   )
 }
