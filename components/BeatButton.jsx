@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSound from 'use-sound';
 import classNames from "classnames";
 
@@ -7,6 +7,7 @@ export const BeatButton = (props) => {
   const sound = props.sound //change to props.sound
   const icon = '/images/test.gif' // change to props.icon
   const label = props.label
+  const activeState = props.activeState
   
   const [play, exposedData] = useSound(sound, {loop: true});
   const [playing, setPlaying] = useState(false)
@@ -17,6 +18,18 @@ export const BeatButton = (props) => {
 
 })
   
+
+
+  const reset = () => {
+    exposedData.stop()
+    setPlaying(false)
+    activeState.setCount(0)
+  }
+
+  useEffect(()=>{
+    reset()
+  },[props.allStop])
+
 
   return (
     <button

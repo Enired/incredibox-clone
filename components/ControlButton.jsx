@@ -1,7 +1,11 @@
 export const ControlButton = (props) => {
-  label = props.label
+  const label = props.label
+  const onClick = props.onClick
   return (
-    <button>
+    <button
+    className="w-full m-2 text-white bg-black"
+    onClick={()=>{onClick()}}
+    >
       {label}
     </button>
   )
