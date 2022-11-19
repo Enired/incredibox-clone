@@ -12,7 +12,7 @@ export default function Home() {
   const [activeCount, setActiveCount] = useState(0)
   return (
   
-    <div className='flex flex-wrap w-1/4 max-h-60 justify-center'>
+    <div className='flex flex-wrap w-1/4 max-h-60 content-center justify-center'>
       {sounds.map((sound, index)=>{
         return(
           <BeatButton
