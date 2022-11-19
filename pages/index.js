@@ -18,7 +18,7 @@ export default function Home() {
           <BeatButton
             sound={sound}
             label={`Button ${index}`}
-            activeCountState={{count:activeCount, set:setActiveCount}}
+            activeCountState={{count:activeCount, setCount:setActiveCount}}
           />
         )
       })}
