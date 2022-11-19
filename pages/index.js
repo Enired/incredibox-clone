@@ -11,7 +11,8 @@ import {sounds} from '../public/sounds/index'
 export default function Home() {
   const [activeCount, setActiveCount] = useState(0)
   return (
-    <div className={styles.container}>
+  
+    <div className='flex flex-wrap w-2/5 max-h-60 justify-center'>
       {sounds.map((sound, index)=>{
         return(
           <BeatButton
