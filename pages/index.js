@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { BeatButton } from '../components/BeatButton';
 import styles from '../styles/Home.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ControlButton } from '../components/ControlButton';
 
 //All sounds from sounds public folder
@@ -19,7 +19,8 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+  
+    <div className='flex flex-wrap w-1/4 max-h-60 content-center justify-center'>
       {sounds.map((sound, index)=>{
         return(
           <BeatButton
