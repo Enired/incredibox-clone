@@ -10,10 +10,6 @@ import {sounds} from '../public/sounds/index'
 
 export default function Home() {
   const [activeCount, setActiveCount] = useState(0)
-  // useEffect(()=>{
-  //   console.log('yo')
-    
-  // },[activeCount])
   return (
     <div className={styles.container}>
       {sounds.map((sound, index)=>{
@@ -21,8 +17,7 @@ export default function Home() {
           <BeatButton
             sound={sound}
             label={`Button ${index}`}
-            activeCount={activeCount}
-            setActiveCount={setActiveCount}
+            activeCountState={{count:activeCount, set:setActiveCount}}
           />
         )
       })}

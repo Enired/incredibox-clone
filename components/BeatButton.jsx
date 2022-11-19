@@ -4,42 +4,43 @@ import classNames from "classnames";
 
 
 export const BeatButton = (props) => {
-  const sound = props.sound //change to props.sound
-  const icon = '/images/test.gif' // change to props.icon
-  const label = props.label
-  const activeCount = props.activeCount
-  const setActiveCount = props.setActiveCount
-  
-  const [play, exposedData] = useSound(sound, {loop: true});
-  const [playing, setPlaying] = useState(false)
+  const sound = props.sound; //change to props.sound
+  const icon = '/images/test.gif'; // change to props.icon
+  const label = props.label;
+  const activeCountState = props.activeCountState;
+  // const setActiveCount = props.setActiveCount;
+
+  const [play, exposedData] = useSound(sound, { loop: true });
+  const [playing, setPlaying] = useState(false);
 
   const buttonClass = classNames({
     'bg-slate-400 text-white p-2 m-2 w-40 h-40': true,
-    'bg-pink-500' : playing,
-    'bg-yellow-500': activeCount >= 8 && !playing,
+    'bg-pink-500': playing,
+    'disabled bg-slate-100' : activeCountState.count >= 8 && !playing,
 
-})
-  
+  });
+
 
   return (
     <button
-        className={buttonClass}
+      className={buttonClass}
 
-      onClick={()=>{
-        if(!playing){
-          setPlaying(true)
-          play()
-          setActiveCount(activeCount+1)
+      onClick={() => {
+        if(buttonClass.includes('disabled')){
+          return
         }
-        else{
-          setPlaying(false)
-          exposedData.stop()
-          setActiveCount(activeCount-1)
+        if (!playing) {
+          setPlaying(true);
+          play();
+          activeCountState.set(activeCountState.count + 1)
         }
-        console.log(activeCount)
+        else {
+          setPlaying(false);
+          exposedData.stop();
+          activeCountState.set(activeCountState.count - 1)
+        }
       }}
     >
-    {/* <h1>{label}</h1> */}
     </button>
 
   );
