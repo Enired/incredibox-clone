@@ -17,7 +17,8 @@ export default function Home() {
     setAllStop(allStop + 1);
   };
   return (
-
+    <div className='flex flex-col w-full justify-center items-center'>
+    <h1 className='flex text-white text-xl border-solid border w-1/4 p-20 m-2 justify-center'>The Clone Box</h1>
     <div className='flex flex-wrap bg-zinc-900 border-zinc-500 border-double border-2 w-1/4 h-fit content-center justify-center'>
       {sounds.map((sound, index) => {
         return (
@@ -29,11 +30,17 @@ export default function Home() {
           />
         );
       })}
+    </div>
+
+      <div className='flex w-1/4 m-2'>
 
       <ControlButton
         label={'STOP'}
         onClick={allStopFn}
       />
+      </div>
+    
     </div>
+
   );
 }
