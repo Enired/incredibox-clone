@@ -22,8 +22,15 @@ export default function Home() {
     html2canvas(document.body).then(function (canvas) {
       // document.body.appendChild(canvas);
       var dataURL = canvas.toDataURL("image/png");
-      var newTab = window.open('about:blank', 'image from canvas');
-      newTab.document.write("<a href='" + dataURL + "'download>Download your deck pic</a>");
+      const link = document.createElement('a')
+      link.href = dataURL
+      link.setAttribute('download', 'Incredibox-Deck-Pic.png')
+
+      link.click()
+      // link.parentNode.removeChild(link)
+
+      // var newTab = window.open('about:blank', 'image from canvas');
+      // newTab.document.write("<a href='" + dataURL + "'download>Download your deck pic</a>");
       return;
     });
 
