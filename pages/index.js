@@ -23,6 +23,7 @@ export default function Home() {
       {sounds.map((sound, index) => {
         return (
           <BeatButton
+            key={index}
             sound={sound}
             label={`Button ${index}`}
             activeCountState={{ count: activeCount, setCount: setActiveCount }}
