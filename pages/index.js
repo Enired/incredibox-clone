@@ -8,11 +8,13 @@ import html2canvas from 'html2canvas';
 //All sounds from sounds public folder
 import { sounds } from '../public/sounds/index';
 import { ControlButton } from '../components/ControlButton';
+import { Textbox } from '../components/Textbox';
 
 
 export default function Home() {
   const [activeCount, setActiveCount] = useState(0);
   const [allStop, setAllStop] = useState(0);
+  const [title, setTitle] = useState('')
 
   const allStopFn = () => {
     setAllStop(allStop + 1);
@@ -25,9 +27,9 @@ export default function Home() {
       const link = document.createElement('a')
       link.href = dataURL
       link.setAttribute('download', 'Incredibox-Deck-Pic.png')
-
+      document.body.appendChild(link)
       link.click()
-      // link.parentNode.removeChild(link)
+      link.parentNode.removeChild(link)
 
       // var newTab = window.open('about:blank', 'image from canvas');
       // newTab.document.write("<a href='" + dataURL + "'download>Download your deck pic</a>");
@@ -39,6 +41,10 @@ export default function Home() {
   return (
     <div className='flex flex-col w-full justify-center items-center'>
       <h1 className='flex text-white text-xl border-solid border w-1/4 p-20 m-2 justify-center'>The Clone Box</h1>
+      <Textbox
+        text={title}
+        setText={setTitle}
+      ></Textbox>
       <div id='sound-deck' className='flex flex-wrap bg-zinc-900 border-zinc-500 border-double border-2 w-1/4 h-fit content-center justify-center'>
         {sounds.map((sound, index) => {
           return (
